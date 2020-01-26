@@ -3,9 +3,13 @@
 {% block title %} Create new List {% endblock %}
 
 {% block content %}
-<form method="post" actions="/create/">
+<form method="post" actions="/create/" class="form-group">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" name="save">Create New</button>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" name="save" class="btn-success btn">Create New</button>
+        </div>
+        {{form.name}}
+    </div>
 </form>
 {% endblock content %}
