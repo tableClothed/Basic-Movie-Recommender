@@ -45,8 +45,12 @@
                 <div class="col-8">
                     <h1 class="mt-2">Siteo</h1>
                     <hr class="mt-0 mb-4">
-                        {% block content %}
-                        {% endblock %}
+                        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                            {% block content %}
+                            {% endblock %}
+                        {% comment %} {% else %} {% endcomment %}
+                            {% comment %} <p> Login <a href="/login"> HERE </a></p> {% endcomment %}
+                        {% comment %} {% endif %} {% endcomment %}
                 </hr>
             </div>
         </div>

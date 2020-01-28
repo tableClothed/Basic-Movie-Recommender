@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', v.register, name="register"),
     path('', include('movies_rm.urls')),
+    path('', include("django.contrib.auth.urls")),
 ]
