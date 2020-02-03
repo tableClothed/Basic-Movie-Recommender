@@ -1,4 +1,11 @@
 *.csv
 *.sqlite3
 db.*
-.gitignore
+*.gitignore
+*.data
+*.item
+*.info
+manage.py
+__pycache__
+migrations
+__init__.py
