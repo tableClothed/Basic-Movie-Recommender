@@ -4,14 +4,14 @@ from django.db import models
 class Movie(models.Model):
     
     year = models.IntegerField()
-    lenght = models.IntegerField()
+    length = models.IntegerField()
     title = models.CharField(max_length=200)
     genre = models.CharField(max_length=100)
     actor = models.CharField(max_length=100)
+    actress = models.CharField(max_length=100)
     director = models.CharField(max_length=100)
     popularity = models.IntegerField()
     awards = models.BooleanField()
-    image = models.CharField(max_length=20)
 
     # class Meta:
     #     ordering = ('title')
