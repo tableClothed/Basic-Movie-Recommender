@@ -1,5 +1,35 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h1>name Page</h1>
-{% endblock %}
+<div class="row">
+    {% for movie in latest_movies %}
+
+    <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            {% comment %} <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> {% endcomment %}
+            <div class="card-body">
+            <h2>{{movie.title}}</h2>
+            <small class="text-muted"> {{movie.genre}}, {{movie.length}} mins </small>
+              <p class="card-text">
+              This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+              </p>
+                <p>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" href="#">Show</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" href="#">Review</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+{% comment %} {% endif %} {% endcomment %}
+    </div>
+{% endblock content %}
