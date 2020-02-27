@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'movies.apps.MoviesConfig',
     'crispy_forms',
+    'star_ratings'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,12 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.core.context_processors.request'
+]
+
+# STAR_RATINGS_STAR_WIDTH = 25
+# STAR_RATINGS_STAR_HEIGHT = 25
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_ANONYMOUS = False

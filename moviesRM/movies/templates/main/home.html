@@ -1,14 +1,17 @@
 {% extends 'main/base.html' %}
+{% load ratings %}
 
 {% block window %}
 
 <section class="jumbotron text-center">
         <div class="container">
-        <h1>Movie Recommendations</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
         {% if user.is_authenticated %}
+          <h1>Hello, {{ user.username }}!</h1>
+          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
           <a href="/movies" class="btn btn-lg btn-primary my-2">Show movies</a>
         {% else %}
+        <h1>Movie Recommendations</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
         <p>
             <a href="/register" class="btn btn-lg btn-primary my-2">Register</a>
             <a href="/login" class="btn btn-lg btn-secondary my-2">Login</a>
@@ -32,13 +35,14 @@
               <p class="card-text">
               This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
               </p>
-                <p>
+              {% ratings movie  18 18 read_only=True %}
+                <!-- <p>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
-              </p>
+              </p> -->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <a class="btn btn-sm btn-outline-secondary" href="/movies/{{movie.id}}">Show</a>
