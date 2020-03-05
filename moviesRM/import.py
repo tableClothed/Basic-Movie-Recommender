@@ -1,21 +1,19 @@
 import csv
 from movies.models import Movie
 
-with open('film.csv') as f:
-    reader = csv.reader(f, delimiter=';')
+with open('tmdb_5000_movies.csv', 'r', encoding='utf-8') as f:
+    reader = csv.reader(f, delimiter=',')
     for row in reader:
-        if row[1] in (None, ""):
-            row[1] = 0
-        if row[7] in (None, ""):
-            row[7] = 0
-        d, p = Movie.objects.get_or_create(
-            year=row[0],
-            length=row[1],
-            title=row[2],
-            genre=row[3],
-            actor=row[4],
-            actress=row[5],
-            director=row[6],
-            popularity=row[7],
-            awards=row[8])
-        d.save()
+        try:
+            d, p = Movie.objects.get_or_create(
+                title=row[17],
+                genre=row[1],
+                homepage=row[2],
+                overview=row[7],
+                release_date=row[11],
+                production_companies=row[9],
+                length=row[13],
+                tagline=row[16]
+                )
+            d.save()
+        except: break

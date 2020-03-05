@@ -6,10 +6,13 @@ import random
 def home(response):
     # latest_movies = Movie.objects.order_by("popularity")[:9]
     # context = {"latest_movies":latest_movies}
+    movie_list = Movie.objects.all()
+
     if response.user.is_authenticated:
         latest_movies = Movie.objects.filter(ratings__isnull=False).order_by('-ratings__average')[:9]
+        if not latest_movies:
+            latest_movies = random.sample(list(movie_list), 9)
     else:
-        movie_list = Movie.objects.all()
         latest_movies = random.sample(list(movie_list), 9)
 
     context = { "latest_movies": latest_movies }

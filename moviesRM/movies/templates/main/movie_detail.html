@@ -7,12 +7,12 @@
 <div class="container-fluid">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <h3 class="mb-0">{{movie.title}} ({{movie.year}}) </h3>
+          <h3 class="mb-0">{{movie.title}} ({{movie.release_date}}) </h3>
           <small class="mb-4 ml-2 text-muted">{{movie.genre}}, {{movie.length}} mins</small>
           <div class="container">
-          <p class="card-text"><span class="font-weight-bold">Director:</span> {{movie.director}}</p>
-          <p class="card-text"><span class="font-weight-bold">Actor: </span>{{movie.actor}}</p>
-          <p class="card-text"><span class="font-weight-bold"> Actress: </span> {{movie.actress}}</p>
+          <p class="card-text"><span class="font-weight-bold">Director:</span> {{movie.overview}}</p>
+          <p class="card-text"><span class="font-weight-bold">Actor: </span>{{movie.homepage}}</p>
+          <p class="card-text"><span class="font-weight-bold"> Actress: </span> {{movie.tagline}}</p>
           {% if movie.awards == False %}
             <p class="card-text"><span class="font-weight-bold"> Awards: </span> None</p>
           {% else %}

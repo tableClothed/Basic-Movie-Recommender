@@ -5,15 +5,14 @@ from star_ratings.models import Rating
 
 class Movie(models.Model):
     
-    year = models.IntegerField()
-    length = models.IntegerField()
     title = models.CharField(max_length=200)
-    genre = models.CharField(max_length=100)
-    actor = models.CharField(max_length=100)
-    actress = models.CharField(max_length=100)
-    director = models.CharField(max_length=100)
-    popularity = models.IntegerField()
-    awards = models.BooleanField()
+    length = models.CharField(max_length=4)
+    genre = models.CharField(max_length=300)
+    homepage = models.CharField(max_length=100)
+    overview = models.CharField(max_length=500)
+    tagline = models.CharField(max_length=200)
+    release_date = models.CharField(max_length=100)
+    production_companies = models.CharField(max_length=200)
     ratings = GenericRelation(Rating, related_query_name='object_list')
 
     def __unicode__(self):
