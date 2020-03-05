@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
+from star_ratings.models import Rating
 
 
 class Movie(models.Model):
@@ -12,16 +14,11 @@ class Movie(models.Model):
     director = models.CharField(max_length=100)
     popularity = models.IntegerField()
     awards = models.BooleanField()
-
-    # class Meta:
-    #     ordering = ('title')
-
-    # def averange_rating(self):
-    #     all_ratings = map(lambda x: x.rating, self.seview_set.all())
-    #     return np.mean(all_ratings)
+    ratings = GenericRelation(Rating, related_query_name='object_list')
 
     def __unicode__(self):
         return self.title
+
 
 class Review(models.Model):
     RATING_CHOICES = (

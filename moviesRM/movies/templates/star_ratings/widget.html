@@ -1,0 +1,5 @@
+{% extends "star_ratings/widget_base.html" %}
+
+{% block rating_detail %}
+    <p>Movie rate: {{ rating.average|floatformat:"-2" }} ( by {{ rating.count }} users )</p>
+{% endblock %}
